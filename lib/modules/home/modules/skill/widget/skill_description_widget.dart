@@ -23,7 +23,7 @@ class SkillDescriptionWidget extends StatelessWidget {
               child: Text(
                 skillDescription,
                 style: getBodyStyle(),
-              )),
+              )), // <-- Add comma
         ),
       ),
     );
