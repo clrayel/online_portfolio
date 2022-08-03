@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:online_portfolio/modules/home/domain/image_getter.dart';
 import 'package:online_portfolio/modules/home/modules/works/widget/works_widget.dart';
-import 'package:online_portfolio/modules/home/widget/special_containers/rounded_opacity_container.dart';
+import 'package:online_portfolio/modules/home/widget/special_containers/rounded_opacity_container.dart'; // Fix imports
 
 import '../../../../../core/text_style/text_styles.dart';
 import '../../../../core/home_data/home_data.dart';
@@ -23,7 +23,7 @@ class _WorksSectionState extends State<WorksSection> {
   @override
   Widget build(BuildContext context) {
     return BodyContainer(
-      // width: 1500,
+      // width: 1500, <-- Remove comment
       height: MediaQuery.of(context).size.height,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -51,7 +51,7 @@ class _WorksSectionState extends State<WorksSection> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       IconButton(
-                        onPressed: () => controller.previousPage(),
+                        onPressed: () => controller.previousPage(), // <-- Make a private method for this.
                         icon: const Icon(
                           Icons.navigate_before,
                           color: Colors.white,
@@ -59,7 +59,7 @@ class _WorksSectionState extends State<WorksSection> {
                         ),
                       ),
                       IconButton(
-                        onPressed: () => controller.nextPage(),
+                        onPressed: () => controller.nextPage(),// <-- Make a private method for this.
                         icon: const Icon(
                           Icons.navigate_next,
                           color: Colors.white,
