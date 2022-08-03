@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:online_portfolio/core/home_data/home_data.dart';
-import 'package:online_portfolio/core/text_style/text_styles.dart';
+import 'package:online_portfolio/core/text_style/text_styles.dart'; // <-- Fix import 
 
 class TriviaSection extends StatefulWidget {
   const TriviaSection({Key? key}) : super(key: key);
