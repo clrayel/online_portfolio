@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:online_portfolio/modules/home/data/models/short_description.dart';
 
-import '../../../../core/home_data/home_data.dart';
 import '../../domain/image_getter.dart';
 import '../../widget/short_description_widget/short_description_widget.dart';
 import '../body_container.dart';
 
 class IntroWidget extends StatefulWidget {
-  const IntroWidget({Key? key}) : super(key: key);
+  final ShortDescription about;
+
+  const IntroWidget({
+    Key? key,
+    required this.about,
+  }) : super(key: key);
 
   @override
   State<IntroWidget> createState() => _IntroSectionState();
@@ -14,7 +19,6 @@ class IntroWidget extends StatefulWidget {
 
 class _IntroSectionState extends State<IntroWidget> {
   ImgGetter img = ImgGetter();
-  HomeData data = HomeData();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +42,7 @@ class _IntroSectionState extends State<IntroWidget> {
                 )),
           ),
           ShortDescriptionWidget(
-            description: data.getAbout(),
+            description: widget.about,
           ),
         ],
       ),

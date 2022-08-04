@@ -2,21 +2,25 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/text_style/text_styles.dart';
-import '../../../../core/home_data/home_data.dart';
+import '../../data/models/short_description.dart';
 import '../../domain/image_getter.dart';
 import '../body_container.dart';
 import '../rounded_opacity_container.dart';
 import 'works_carousel_widget.dart';
 
 class WorksWidget extends StatefulWidget {
-  const WorksWidget({Key? key}) : super(key: key);
+  final List<ShortDescription> works;
+
+  const WorksWidget({
+    Key? key,
+    required this.works,
+  }) : super(key: key);
 
   @override
   State<WorksWidget> createState() => _WorksSectionState();
 }
 
 class _WorksSectionState extends State<WorksWidget> {
-  HomeData data = HomeData();
   ImgGetter img = ImgGetter();
   CarouselController controller = CarouselController();
 
@@ -41,7 +45,7 @@ class _WorksSectionState extends State<WorksWidget> {
                     horizontal: 50.0,
                   ),
                   child: WorksCarouselWidget(
-                    works: data.works,
+                    works: widget.works,
                     controller: controller,
                   ),
                 ),

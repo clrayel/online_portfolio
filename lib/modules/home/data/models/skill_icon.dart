@@ -1,6 +1,11 @@
 class SkillIcon {
   final String iconLocation;
   final String name;
+  final String skillDescription;
 
-  SkillIcon(this.iconLocation, this.name);
+  SkillIcon({
+    required this.iconLocation,
+    required this.name,
+    this.skillDescription = "",
+  });
 }

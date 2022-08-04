@@ -1,18 +1,20 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:online_portfolio/core/home_data/home_data.dart';
 import 'package:online_portfolio/core/text_style/text_styles.dart';
 
 class TriviaWidget extends StatefulWidget {
-  const TriviaWidget({Key? key}) : super(key: key);
+  final List<String> trivia;
+
+  const TriviaWidget({
+    Key? key,
+    required this.trivia,
+  }) : super(key: key);
 
   @override
   State<TriviaWidget> createState() => _TriviaSectionState();
 }
 
 class _TriviaSectionState extends State<TriviaWidget> {
-  HomeData data = HomeData();
-
   @override
   Widget build(BuildContext context) {
     return CarouselSlider.builder(
@@ -24,14 +26,14 @@ class _TriviaSectionState extends State<TriviaWidget> {
           seconds: 7,
         ),
       ),
-      itemCount: data.trivia.length,
+      itemCount: widget.trivia.length,
       itemBuilder: (context, itemIndex, realIndex) {
         return Container(
           alignment: Alignment.center,
           color: Colors.black.withOpacity(0.6),
           width: MediaQuery.of(context).size.width,
           child: Text(
-            data.trivia[itemIndex],
+            widget.trivia[itemIndex],
             style: getBodyStyle(Colors.white),
           ),
         );

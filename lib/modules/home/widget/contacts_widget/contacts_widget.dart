@@ -2,19 +2,25 @@ import 'dart:html' as html;
 
 import 'package:flutter/material.dart';
 
-import '../../../../core/home_data/home_data.dart';
 import '../../../../core/text_style/text_styles.dart';
 import 'email_text_field_widget.dart';
 
 class ContactsWidget extends StatelessWidget {
-  ContactsWidget({Key? key}) : super(key: key);
+  final AssetImage phone;
+  final AssetImage linkedin;
+
+  ContactsWidget({
+    Key? key,
+    required this.phone,
+    required this.linkedin,
+  }) : super(key: key);
+
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _name = TextEditingController();
   final TextEditingController _email = TextEditingController();
   final TextEditingController _subject = TextEditingController();
   final TextEditingController _body = TextEditingController();
 
-  HomeData data = HomeData();
   double? fontSize = 20;
 
   @override
@@ -51,8 +57,8 @@ class ContactsWidget extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    iconTextPair(data.phone, "+639983412995"),
-                    iconTextPair(data.linkedin, "LinkedIn",
+                    iconTextPair(phone, "+639983412995"),
+                    iconTextPair(linkedin, "LinkedIn",
                         "https://ph.linkedin.com/in/carlos-angelo-rayel-413722237"),
                   ],
                 ),

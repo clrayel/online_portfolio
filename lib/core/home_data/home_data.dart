@@ -84,32 +84,32 @@ class HomeData {
 
   final List<SkillIcon> skills = [
     SkillIcon(
-      'graphics/skill_icon/python.png',
-      'Python',
+      iconLocation: 'graphics/skill_icon/python.png',
+      name: 'Python',
     ),
     SkillIcon(
-      'graphics/skill_icon/javascript.png',
-      'Javascript',
+      iconLocation: 'graphics/skill_icon/javascript.png',
+      name: 'Javascript',
     ),
     SkillIcon(
-      'graphics/skill_icon/flutter.png',
-      'Flutter',
+      iconLocation: 'graphics/skill_icon/flutter.png',
+      name: 'Flutter',
     ),
     SkillIcon(
-      'graphics/skill_icon/c.png',
-      'C',
+      iconLocation: 'graphics/skill_icon/c.png',
+      name: 'C',
     ),
     SkillIcon(
-      'graphics/skill_icon/c-sharp.png',
-      'C#',
+      iconLocation: 'graphics/skill_icon/c-sharp.png',
+      name: 'C#',
     ),
     SkillIcon(
-      'graphics/skill_icon/mongodb.png',
-      'MongoDB',
+      iconLocation: 'graphics/skill_icon/mongodb.png',
+      name: 'MongoDB',
     ),
     SkillIcon(
-      'graphics/skill_icon/github.png',
-      'Github',
+      iconLocation: 'graphics/skill_icon/github.png',
+      name: 'Github',
     ),
   ];
 

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:online_portfolio/modules/home/data/models/short_description.dart';
-import 'package:online_portfolio/modules/home/data/models/skill_icon.dart';
 
-class HomeData {
-  final ShortDescription _aboutMe = ShortDescription(
+import '../models/short_description.dart';
+import '../models/skill_icon.dart';
+
+class HomeDataSource {
+  final ShortDescription aboutMe = ShortDescription(
     textColor: Colors.white,
     hasShadow: true,
     title: "Hi, I'm Carlos",
@@ -84,64 +85,50 @@ class HomeData {
 
   final List<SkillIcon> skills = [
     SkillIcon(
-      'graphics/skill_icon/python.png',
-      'Python',
+      iconLocation: 'graphics/skill_icon/python.png',
+      name: 'Python',
+      skillDescription:
+          "I have experience with designing UI and Artificial Intelligence in Python.",
     ),
     SkillIcon(
-      'graphics/skill_icon/javascript.png',
-      'Javascript',
+      iconLocation: 'graphics/skill_icon/javascript.png',
+      name: 'Javascript',
+      skillDescription:
+          "I have experience in creating React JS backends and connecting them to HTML/CSS frontends.",
     ),
     SkillIcon(
-      'graphics/skill_icon/flutter.png',
-      'Flutter',
+      iconLocation: 'graphics/skill_icon/flutter.png',
+      name: 'Flutter',
+      skillDescription:
+          "I have experience with designing UI and frontend functionalities in Flutter.",
     ),
     SkillIcon(
-      'graphics/skill_icon/c.png',
-      'C',
+      iconLocation: 'graphics/skill_icon/c.png',
+      name: 'C',
+      skillDescription:
+          "I have experience in working with data structures and threads in C.",
     ),
     SkillIcon(
-      'graphics/skill_icon/c-sharp.png',
-      'C#',
+      iconLocation: 'graphics/skill_icon/c-sharp.png',
+      name: 'C#',
+      skillDescription:
+          "I have experience with creating a CLI Console game in C#.",
     ),
     SkillIcon(
-      'graphics/skill_icon/mongodb.png',
-      'MongoDB',
+      iconLocation: 'graphics/skill_icon/mongodb.png',
+      name: 'MongoDB',
+      skillDescription:
+          "I have experience with working with MongoDB databases.",
     ),
     SkillIcon(
-      'graphics/skill_icon/github.png',
-      'Github',
+      iconLocation: 'graphics/skill_icon/github.png',
+      name: 'Github',
+      skillDescription:
+          "I have experience with working with repositories and collaborated development in Github.",
     ),
   ];
 
   AssetImage phone = const AssetImage("graphics/contact_icon/phone.png");
   AssetImage mail = const AssetImage("graphics/contact_icon/mail.png");
   AssetImage linkedin = const AssetImage("graphics/contact_icon/linkedin.png");
-
-  final String _python =
-      "I have experience with designing UI and Artificial Intelligence in Python.";
-  final String _javascript =
-      "I have experience in creating React JS backends and connecting them to HTML/CSS frontends.";
-  final String _flutter =
-      "I have experience with designing UI and frontend functionalities in Flutter.";
-  final String _c =
-      "I have experience in working with data structures and threads in C.";
-  final String _cSharp =
-      "I have experience with creating a CLI Console game in C#.";
-  final String _mongodb =
-      "I have experience with working with MongoDB databases.";
-  final String _github =
-      "I have experience with working with repositories and collaborated development in Github.";
-
-  getAbout() => _aboutMe;
-
-  getSkillDir(String skill) {
-    if (skill == "Python") return _python;
-    if (skill == "Javascript") return _javascript;
-    if (skill == "Flutter") return _flutter;
-    if (skill == "C") return _c;
-    if (skill == "C#") return _cSharp;
-    if (skill == "MongoDB") return _mongodb;
-    if (skill == "Github") return _github;
-    return "No skill selected";
-  }
 }
