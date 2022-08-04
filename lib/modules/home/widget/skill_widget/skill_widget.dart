@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:online_portfolio/modules/home/data/models/skill_icon.dart';
 
 import '../../../../../core/text_style/text_styles.dart';
+import '../../data/models/skill_icon.dart';
 import '../body_container.dart';
 import '../rounded_opacity_container.dart';
 import 'skill_description_widget.dart';

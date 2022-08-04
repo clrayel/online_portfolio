@@ -9,7 +9,6 @@ class ImgGetter {
   getBlueProfile() => const AssetImage('graphics/home_page/profile-blue.jpg');
   getSkillIcon(String location) => AssetImage(location);
 
-  get diamondBackground =>
-      const AssetImage('graphics/home_page/diamond_bg.jpg');
-  get comsciBackground => const AssetImage('graphics/home_page/comsci_bg.png');
+  diamondBackground() => const AssetImage('graphics/home_page/diamond_bg.jpg');
+  comsciBackground() => const AssetImage('graphics/home_page/comsci_bg.png');
 }

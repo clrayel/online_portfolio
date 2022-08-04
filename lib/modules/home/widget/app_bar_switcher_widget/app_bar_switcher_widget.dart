@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:online_portfolio/modules/home/widget/app_bar_switcher_widget/app_bar_button_widget.dart';
 
 import '../../../../core/text_style/text_styles.dart';
+import 'app_bar_button_widget.dart';
 
 class AppBarSwitcherWidget extends StatelessWidget
     implements PreferredSizeWidget {
@@ -34,11 +34,13 @@ class AppBarSwitcherWidget extends StatelessWidget
       duration: const Duration(
         milliseconds: 250,
       ),
-      child: scrollPosition <= 500 ? appBarA() : appBarB(),
+      child: isScrollAtHome ? homeAppBar() : scrollingAppBar(),
     );
   }
 
-  Widget appBarA() => AppBar(
+  get isScrollAtHome => scrollPosition <= 500;
+
+  Widget homeAppBar() => AppBar(
         key: appBarAKey,
         title: Text(
           "CARLOS RAYEL",
@@ -77,7 +79,7 @@ class AppBarSwitcherWidget extends StatelessWidget
           ),
         ],
       );
-  Widget appBarB() => AppBar(
+  Widget scrollingAppBar() => AppBar(
         key: appBarBKey,
         centerTitle: true,
         backgroundColor: Colors.black.withOpacity(0.8),
@@ -115,6 +117,5 @@ class AppBarSwitcherWidget extends StatelessWidget
       );
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => const Size(50, 50);
 }

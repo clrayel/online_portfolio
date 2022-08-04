@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:online_portfolio/modules/home/widget/contacts_widget/white_text_field_widget.dart';
 
 import '../../../../core/text_style/text_styles.dart';
 import '../../data/models/email_model.dart';
+import 'white_text_field_widget.dart';
 
 class EmailTextField extends StatelessWidget {
   final GlobalKey<FormState> formKey;

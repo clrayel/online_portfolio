@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:online_portfolio/core/text_style/text_styles.dart';
+
+import '../../../../core/text_style/text_styles.dart';
 
 class TriviaWidget extends StatefulWidget {
   final List<String> trivia;

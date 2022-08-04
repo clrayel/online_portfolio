@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:online_portfolio/modules/home/data/models/short_description.dart';
 
+import '../../data/models/short_description.dart';
 import '../../domain/image_getter.dart';
 import '../../widget/short_description_widget/short_description_widget.dart';
 import '../body_container.dart';

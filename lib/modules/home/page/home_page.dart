@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
       Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: img.diamondBackground,
+            image: img.diamondBackground(),
             fit: BoxFit.cover,
           ),
         ),
