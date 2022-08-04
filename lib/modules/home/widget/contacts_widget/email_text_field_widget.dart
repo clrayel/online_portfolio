@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:online_portfolio/modules/home/data/models/email_model.dart';
+import 'package:online_portfolio/modules/home/widget/contacts_widget/white_text_field_widget.dart';
 
-import '../../../../../core/text_style/text_styles.dart';
+import '../../../../core/text_style/text_styles.dart';
+import '../../data/models/email_model.dart';
 
 class EmailTextField extends StatelessWidget {
   final GlobalKey<FormState> formKey;
@@ -29,15 +30,28 @@ class EmailTextField extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: whiteTextField(name, "Name"),
+                  child: WhiteTextFieldWidget(
+                    controller: name,
+                    hintText: "Name",
+                  ),
                 ),
                 Expanded(
-                  child: whiteTextField(email, "Email"),
+                  child: WhiteTextFieldWidget(
+                    controller: email,
+                    hintText: "Email",
+                  ),
                 ),
               ],
             ),
-            whiteTextField(subject, "Subject"),
-            whiteTextField(body, "Body", 5),
+            WhiteTextFieldWidget(
+              controller: subject,
+              hintText: "Subject",
+            ),
+            WhiteTextFieldWidget(
+              controller: body,
+              hintText: "Body",
+              lines: 5,
+            ),
             OutlinedButton(
                 style: OutlinedButton.styleFrom(
                   primary: Colors.white,
@@ -84,45 +98,4 @@ class EmailTextField extends StatelessWidget {
       ),
     );
   }
-
-  Container whiteTextField(TextEditingController controller, String hintText,
-          [int? lines]) =>
-      Container(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 10,
-        ),
-        child: TextFormField(
-          validator: ((value) {
-            if (value == null || value.isEmpty) return 'Please enter some text';
-            return null;
-          }),
-          controller: controller,
-          maxLines: lines,
-          style: const TextStyle(
-            color: Colors.white,
-          ),
-          cursorColor: Colors.white,
-          decoration: InputDecoration(
-            label: Text(
-              hintText,
-              style: getBodyStyle(Colors.white),
-            ),
-            filled: true,
-            border: const OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.white,
-              ),
-            ),
-            enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.white,
-              ),
-            ),
-            constraints: const BoxConstraints(
-              maxWidth: 500,
-            ),
-          ),
-        ),
-      );
 }

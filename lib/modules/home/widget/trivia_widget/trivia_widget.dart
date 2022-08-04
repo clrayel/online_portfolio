@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:online_portfolio/core/home_data/home_data.dart';
 import 'package:online_portfolio/core/text_style/text_styles.dart';
 
-class TriviaSection extends StatefulWidget {
-  const TriviaSection({Key? key}) : super(key: key);
+class TriviaWidget extends StatefulWidget {
+  const TriviaWidget({Key? key}) : super(key: key);
 
   @override
-  State<TriviaSection> createState() => _TriviaSectionState();
+  State<TriviaWidget> createState() => _TriviaSectionState();
 }
 
-class _TriviaSectionState extends State<TriviaSection> {
+class _TriviaSectionState extends State<TriviaWidget> {
   HomeData data = HomeData();
 
   @override

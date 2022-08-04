@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:online_portfolio/modules/home/widget/app_bar_switcher_widget/app_bar_button_widget.dart';
 
 import '../../../../core/text_style/text_styles.dart';
 
-class AppBarSwitcherWidget extends StatelessWidget {
+class AppBarSwitcherWidget extends StatelessWidget
+    implements PreferredSizeWidget {
   final double scrollPosition;
   final ScrollController scrollController;
   final GlobalKey home;
@@ -32,11 +34,11 @@ class AppBarSwitcherWidget extends StatelessWidget {
       duration: const Duration(
         milliseconds: 250,
       ),
-      child: scrollPosition <= 500 ? appBarA : appBarB,
+      child: scrollPosition <= 500 ? appBarA() : appBarB(),
     );
   }
 
-  get appBarA => AppBar(
+  Widget appBarA() => AppBar(
         key: appBarAKey,
         title: Text(
           "CARLOS RAYEL",
@@ -48,14 +50,34 @@ class AppBarSwitcherWidget extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         actions: [
-          appbarButtons(home, "Home"),
-          appbarButtons(skills, "Skills"),
-          appbarButtons(works, "Works"),
-          appbarButtons(education, "Education"),
-          appbarButtons(contact, "Contact Me"),
+          AppBarButtonWidget(
+            buttonKey: home,
+            text: "Home",
+            scrollController: scrollController,
+          ),
+          AppBarButtonWidget(
+            buttonKey: skills,
+            text: "Skills",
+            scrollController: scrollController,
+          ),
+          AppBarButtonWidget(
+            buttonKey: works,
+            text: "Works",
+            scrollController: scrollController,
+          ),
+          AppBarButtonWidget(
+            buttonKey: education,
+            text: "Education",
+            scrollController: scrollController,
+          ),
+          AppBarButtonWidget(
+            buttonKey: contact,
+            text: "Contact Me",
+            scrollController: scrollController,
+          ),
         ],
       );
-  get appBarB => AppBar(
+  Widget appBarB() => AppBar(
         key: appBarBKey,
         centerTitle: true,
         backgroundColor: Colors.black.withOpacity(0.8),
@@ -63,26 +85,36 @@ class AppBarSwitcherWidget extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            appbarButtons(home, "Home"),
-            appbarButtons(skills, "Skills"),
-            appbarButtons(works, "Works"),
-            appbarButtons(education, "Education"),
-            appbarButtons(contact, "Contact Me"),
+            AppBarButtonWidget(
+              buttonKey: home,
+              text: "Home",
+              scrollController: scrollController,
+            ),
+            AppBarButtonWidget(
+              buttonKey: skills,
+              text: "Skills",
+              scrollController: scrollController,
+            ),
+            AppBarButtonWidget(
+              buttonKey: works,
+              text: "Works",
+              scrollController: scrollController,
+            ),
+            AppBarButtonWidget(
+              buttonKey: education,
+              text: "Education",
+              scrollController: scrollController,
+            ),
+            AppBarButtonWidget(
+              buttonKey: contact,
+              text: "Contact Me",
+              scrollController: scrollController,
+            ),
           ],
         ),
       );
 
-  Widget appbarButtons(GlobalKey key, String text) => TextButton(
-        onPressed: () => scrollController.position.ensureVisible(
-          key.currentContext?.findRenderObject() as RenderBox,
-          duration: const Duration(milliseconds: 500),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Text(
-            text,
-            style: getBodyStyle(Colors.white, true),
-          ),
-        ),
-      );
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => const Size(50, 50);
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/text_style/text_styles.dart';
-import '../../../widget/special_containers/rounded_opacity_container.dart';
+import '../rounded_opacity_container.dart';
 
 class SkillDescriptionWidget extends StatelessWidget {
   final String skillDescription;

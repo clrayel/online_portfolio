@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:online_portfolio/modules/home/modules/education/education.dart';
-import 'package:online_portfolio/modules/home/modules/trivia/trivia_section.dart';
-import 'package:online_portfolio/modules/home/widget/app_bar_switcher_widget/app_bar_switcher_widget.dart';
 
 import '../domain/image_getter.dart';
-import '../modules/contacts/contacts.dart';
-import '../modules/intro/intro.dart';
-import '../modules/skill/skill.dart';
-import '../modules/works/works.dart';
+import '../widget/app_bar_switcher_widget/app_bar_switcher_widget.dart';
+import '../widget/contacts_widget/contacts_widget.dart';
+import '../widget/education_widget/education_widget.dart';
+import '../widget/intro_widget/intro_widget.dart';
+import '../widget/skill_widget/skill_widget.dart';
+import '../widget/trivia_widget/trivia_widget.dart';
+import '../widget/works_widget/works_widget.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -21,9 +21,7 @@ class _HomePageState extends State<HomePage> {
   ImgGetter img = ImgGetter();
   final ScrollController _scrollController = ScrollController();
   double _scrollPosition = 0;
-  final PageController _pageController = PageController(
-    initialPage: 0,
-  );
+
   final _home = GlobalKey();
   final _skills = GlobalKey();
   final _works = GlobalKey();
@@ -45,6 +43,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -56,13 +61,23 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         extendBodyBehindAppBar: true,
         backgroundColor: Colors.transparent,
-        appBar: AppBarSwitcher(50),
+        appBar: AppBarSwitcherWidget(
+          scrollPosition: _scrollPosition,
+          home: _home,
+          skills: _skills,
+          works: _works,
+          education: _education,
+          contact: _contact,
+          appBarAKey: _appBarAKey,
+          appBarBKey: _appBarBKey,
+          scrollController: _scrollController,
+        ),
         body: Stack(
           children: [
             buildBody(),
             const Align(
               alignment: Alignment.bottomCenter,
-              child: TriviaSection(),
+              child: TriviaWidget(),
             ),
           ],
         ),
@@ -78,43 +93,23 @@ class _HomePageState extends State<HomePage> {
           controller: _scrollController,
           child: Column(
             children: [
-              IntroSection(
+              IntroWidget(
                 key: _home,
               ),
-              SkillSection(
+              SkillWidget(
                 key: _skills,
               ),
-              WorksSection(
+              WorksWidget(
                 key: _works,
               ),
-              EducationSection(
+              EducationWidget(
                 key: _education,
               ),
-              ContactsSection(
+              ContactsWidget(
                 key: _contact,
               ),
             ],
           ),
         ),
       );
-
-  PreferredSize AppBarSwitcher(double height) {
-    return PreferredSize(
-      preferredSize: Size(
-        height,
-        height,
-      ),
-      child: AppBarSwitcherWidget(
-        scrollPosition: _scrollPosition,
-        home: _home,
-        skills: _skills,
-        works: _works,
-        education: _education,
-        contact: _contact,
-        appBarAKey: _appBarAKey,
-        appBarBKey: _appBarBKey,
-        scrollController: _scrollController,
-      ),
-    );
-  }
 }

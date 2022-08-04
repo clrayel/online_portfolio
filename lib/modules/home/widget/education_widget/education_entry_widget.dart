@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/text_style/text_styles.dart';
-import '../../../data/models/short_description.dart';
-import '../../../widget/special_containers/rounded_opacity_container.dart';
+import '../../../../core/text_style/text_styles.dart';
+import '../../data/models/short_description.dart';
+import '../rounded_opacity_container.dart';
 
-class EducationWidget extends StatelessWidget {
+class EducationEntryWidget extends StatelessWidget {
   final ShortDescription item;
   final Color? color;
   final bool? hasShadow;
-  const EducationWidget(
+  const EducationEntryWidget(
       {Key? key,
       required this.item,
       this.color = Colors.black,
@@ -48,9 +48,14 @@ class EducationWidget extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  Text(
-                    item.body,
-                    style: getBodyStyle(color, hasShadow),
+                  Expanded(
+                    child: Container(
+                      child: Text(
+                        item.body,
+                        style: getBodyStyle(color, hasShadow),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
                   ),
                 ],
               ),

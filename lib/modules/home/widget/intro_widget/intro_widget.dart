@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:online_portfolio/modules/home/domain/image_getter.dart';
 
 import '../../../../core/home_data/home_data.dart';
+import '../../domain/image_getter.dart';
 import '../../widget/short_description_widget/short_description_widget.dart';
-import '../../widget/special_containers/body_container.dart';
+import '../body_container.dart';
 
-class IntroSection extends StatefulWidget {
-  const IntroSection({Key? key}) : super(key: key);
+class IntroWidget extends StatefulWidget {
+  const IntroWidget({Key? key}) : super(key: key);
 
   @override
-  State<IntroSection> createState() => _IntroSectionState();
+  State<IntroWidget> createState() => _IntroSectionState();
 }
 
-class _IntroSectionState extends State<IntroSection> {
+class _IntroSectionState extends State<IntroWidget> {
   ImgGetter img = ImgGetter();
   HomeData data = HomeData();
 

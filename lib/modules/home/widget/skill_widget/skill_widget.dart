@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:online_portfolio/modules/home/modules/skill/widget/skill_description_widget.dart';
-import 'package:online_portfolio/modules/home/widget/special_containers/rounded_opacity_container.dart';
 
 import '../../../../../core/text_style/text_styles.dart';
 import '../../../../core/home_data/home_data.dart';
-import '../../widget/special_containers/body_container.dart';
-import 'widget/skill_icon_widget.dart';
+import '../body_container.dart';
+import '../rounded_opacity_container.dart';
+import 'skill_description_widget.dart';
+import 'skill_icon_widget.dart';
 
-class SkillSection extends StatefulWidget {
-  const SkillSection({Key? key}) : super(key: key);
+class SkillWidget extends StatefulWidget {
+  const SkillWidget({Key? key}) : super(key: key);
 
   @override
-  State<SkillSection> createState() => _SkillSectionState();
+  State<SkillWidget> createState() => _SkillSectionState();
 }
 
-class _SkillSectionState extends State<SkillSection> {
+class _SkillSectionState extends State<SkillWidget> {
   HomeData data = HomeData();
   String skillName = "";
   String _description = "Press a button to view my skills!";

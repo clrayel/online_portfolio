@@ -1,21 +1,21 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:online_portfolio/modules/home/domain/image_getter.dart';
-import 'package:online_portfolio/modules/home/modules/works/widget/works_widget.dart';
-import 'package:online_portfolio/modules/home/widget/special_containers/rounded_opacity_container.dart';
 
 import '../../../../../core/text_style/text_styles.dart';
 import '../../../../core/home_data/home_data.dart';
-import '../../widget/special_containers/body_container.dart';
+import '../../domain/image_getter.dart';
+import '../body_container.dart';
+import '../rounded_opacity_container.dart';
+import 'works_carousel_widget.dart';
 
-class WorksSection extends StatefulWidget {
-  const WorksSection({Key? key}) : super(key: key);
+class WorksWidget extends StatefulWidget {
+  const WorksWidget({Key? key}) : super(key: key);
 
   @override
-  State<WorksSection> createState() => _WorksSectionState();
+  State<WorksWidget> createState() => _WorksSectionState();
 }
 
-class _WorksSectionState extends State<WorksSection> {
+class _WorksSectionState extends State<WorksWidget> {
   HomeData data = HomeData();
   ImgGetter img = ImgGetter();
   CarouselController controller = CarouselController();
@@ -23,7 +23,6 @@ class _WorksSectionState extends State<WorksSection> {
   @override
   Widget build(BuildContext context) {
     return BodyContainer(
-      // width: 1500,
       height: MediaQuery.of(context).size.height,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -35,12 +34,13 @@ class _WorksSectionState extends State<WorksSection> {
           RoundedOpacityContainer(
             color: Colors.black.withOpacity(0.8),
             child: Stack(
+              clipBehavior: Clip.none,
               children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 50.0,
                   ),
-                  child: WorksWidget(
+                  child: WorksCarouselWidget(
                     works: data.works,
                     controller: controller,
                   ),

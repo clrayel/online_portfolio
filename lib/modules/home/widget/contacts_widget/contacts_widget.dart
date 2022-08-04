@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/home_data/home_data.dart';
 import '../../../../core/text_style/text_styles.dart';
-import 'widget/email_text_field_widget.dart';
+import 'email_text_field_widget.dart';
 
-class ContactsSection extends StatelessWidget {
-  ContactsSection({Key? key}) : super(key: key);
+class ContactsWidget extends StatelessWidget {
+  ContactsWidget({Key? key}) : super(key: key);
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _name = TextEditingController();
   final TextEditingController _email = TextEditingController();
@@ -51,8 +51,8 @@ class ContactsSection extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    IconTextPair(data.phone, "+639983412995"),
-                    IconTextPair(data.linkedin, "LinkedIn",
+                    iconTextPair(data.phone, "+639983412995"),
+                    iconTextPair(data.linkedin, "LinkedIn",
                         "https://ph.linkedin.com/in/carlos-angelo-rayel-413722237"),
                   ],
                 ),
@@ -64,7 +64,7 @@ class ContactsSection extends StatelessWidget {
     );
   }
 
-  Widget IconTextPair(AssetImage image, String text, [String link = ""]) =>
+  Widget iconTextPair(AssetImage image, String text, [String link = ""]) =>
       Padding(
         padding: const EdgeInsets.all(10),
         child: Row(

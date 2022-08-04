@@ -1,13 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-import '../../../data/models/short_description.dart';
-import '../../../widget/short_description_widget/short_description_widget.dart';
+import '../../data/models/short_description.dart';
+import '../short_description_widget/short_description_widget.dart';
 
-class WorksWidget extends StatelessWidget {
+class WorksCarouselWidget extends StatelessWidget {
   final List<ShortDescription> works;
   final CarouselController controller;
-  const WorksWidget({Key? key, required this.works, required this.controller})
+  const WorksCarouselWidget(
+      {Key? key, required this.works, required this.controller})
       : super(key: key);
 
   @override
@@ -27,6 +28,7 @@ class WorksWidget extends StatelessWidget {
           ),
           alignment: Alignment.center,
           child: ShortDescriptionWidget(
+            isScroll: true,
             description: works[itemIndex],
           ),
         );

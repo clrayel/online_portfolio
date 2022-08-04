@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:online_portfolio/core/home_data/home_data.dart';
-import 'package:online_portfolio/core/text_style/text_styles.dart';
-import 'package:online_portfolio/modules/home/modules/education/widget/education_widget.dart';
-import 'package:online_portfolio/modules/home/widget/special_containers/body_container.dart';
 
-class EducationSection extends StatefulWidget {
-  const EducationSection({Key? key}) : super(key: key);
+import '../../../../core/home_data/home_data.dart';
+import '../../../../core/text_style/text_styles.dart';
+import '../body_container.dart';
+import 'education_entry_widget.dart';
+
+class EducationWidget extends StatefulWidget {
+  const EducationWidget({Key? key}) : super(key: key);
 
   @override
-  State<EducationSection> createState() => _EducationSectionState();
+  State<EducationWidget> createState() => _EducationSectionState();
 }
 
-class _EducationSectionState extends State<EducationSection> {
+class _EducationSectionState extends State<EducationWidget> {
   HomeData data = HomeData();
 
   @override
@@ -35,7 +36,7 @@ class _EducationSectionState extends State<EducationSection> {
                 children: data.education
                     .map(
                       (item) => Expanded(
-                        child: EducationWidget(item: item),
+                        child: EducationEntryWidget(item: item),
                       ),
                     )
                     .toList(),
